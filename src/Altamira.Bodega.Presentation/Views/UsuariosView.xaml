@@ -1,0 +1,11 @@
+<Page x:Class="Altamira.Bodega.Presentation.Views.UsuariosView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Usuarios y Permisos">
+    <Grid>
+        <TextBlock Text="Usuarios y Permisos"
+                   Style="{DynamicResource EstiloTituloGrande}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+    </Grid>
+</Page>

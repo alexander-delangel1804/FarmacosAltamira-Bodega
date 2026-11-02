@@ -1,0 +1,28 @@
+<Page x:Class="Altamira.Bodega.Presentation.Views.VistaEnConstruccion"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      d:DesignHeight="600" d:DesignWidth="900"
+      Background="{DynamicResource BrochaFondo}">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="🚧"
+                       FontSize="64"
+                       Foreground="{DynamicResource BrochaTextoSuave}" />
+            <TextBlock Text="{Binding TituloVista, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Page}}"
+                       Style="{DynamicResource EstiloTituloGrande}"
+                       Margin="0,24,0,16"
+                       HorizontalAlignment="Center" />
+            <TextBlock Text="Esta funcionalidad se implementará en la Fase 3."
+                       Style="{DynamicResource EstiloTextoSecundario}"
+                       HorizontalAlignment="Center" />
+            <TextBlock Text="La pantalla está diseñada y lista para conectar con la API."
+                       Style="{DynamicResource EstiloTextoSuave}"
+                       HorizontalAlignment="Center"
+                       Margin="0,8,0,0" />
+        </StackPanel>
+    </Grid>
+</Page>

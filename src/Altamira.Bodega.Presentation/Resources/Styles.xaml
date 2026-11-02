@@ -1,0 +1,275 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ================================================================
+         TARJETA DE INDICADOR (KPI)
+         ================================================================ -->
+
+    <Style x:Key="TarjetaKPI" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BrochaSuperficie}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaBorde}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioBordeTarjeta}" />
+        <Setter Property="Padding" Value="20,16" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style x:Key="TarjetaKPIValor" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="32" />
+        <Setter Property="FontFamily" Value="{DynamicResource FuenteTitulos}" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoPrimario}" />
+        <Setter Property="Margin" Value="0,8,0,0" />
+    </Style>
+
+    <Style x:Key="TarjetaKPITitulo" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSecundario}" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Margin" Value="0,4,0,0" />
+    </Style>
+
+    <Style x:Key="TarjetaKPIIcono" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaPrimaria}" />
+        <Setter Property="Margin" Value="0,0,0,8" />
+        <Setter Property="FontFamily" Value="Segoe UI Symbol" />
+    </Style>
+
+    <!-- ================================================================
+         ESTADO DE INVENTARIO (etiqueta con color)
+         ================================================================ -->
+
+    <Style x:Key="EtiquetaEstado" TargetType="Border">
+        <Setter Property="Padding" Value="6,3" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style x:Key="EtiquetaEstadoDisponible" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+        <Setter Property="Background" Value="{DynamicResource BrochaExitoClara}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaExito}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="EtiquetaEstadoBajo" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+        <Setter Property="Background" Value="{DynamicResource BrochaAdvertenciaClara}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaAdvertencia}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="EtiquetaEstadoCaducado" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+        <Setter Property="Background" Value="{DynamicResource BrochaPeligroClara}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaPeligro}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="EtiquetaEstadoProximo" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+        <Setter Property="Background" Value="#EDE9FE" />
+        <Setter Property="BorderBrush" Value="#8B5CF6" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="EtiquetaEstadoTexto" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Margin" Value="2,0" />
+    </Style>
+
+    <!-- ================================================================
+         TABLA DE DATOS
+         ================================================================ -->
+
+    <Style x:Key="EncabezadoColumnaTabla" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSecundario}" />
+        <Setter Property="Margin" Value="8,4" />
+    </Style>
+
+    <Style x:Key="CeldaTabla" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoPrimario}" />
+        <Setter Property="Margin" Value="8,6" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="FilaTabla" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BrochaSuperficie}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaBorde}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="Padding" Value="12,10" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style x:Key="FilaTablaAlternante" TargetType="Border" BasedOn="{DynamicResource FilaTabla}">
+        <Setter Property="Background" Value="{DynamicResource BrochaSuperficieSecundaria}" />
+    </Style>
+
+    <Style x:Key="ContenedorTabla" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BrochaSuperficie}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaBorde}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioBordeTarjeta}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <!-- ================================================================
+         CAMPO DE BÚSQUEDA
+         ================================================================ -->
+
+    <Style x:Key="CampoBusqueda" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BrochaSuperficie}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaBorde}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioBordeCampo}" />
+        <Setter Property="Padding" Value="10,8" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <!-- ================================================================
+         NOTIFICACIÓN / ALERTA
+         ================================================================ -->
+
+    <Style x:Key="NotificacionBase" TargetType="Border">
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioBordeTarjeta}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style x:Key="NotificacionExito" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+        <Setter Property="Background" Value="{DynamicResource BrochaExitoClara}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaExito}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="NotificacionError" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+        <Setter Property="Background" Value="{DynamicResource BrochaPeligroClara}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaPeligro}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="NotificacionAdvertencia" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+        <Setter Property="Background" Value="{DynamicResource BrochaAdvertenciaClara}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaAdvertencia}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="NotificacionInformacion" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+        <Setter Property="Background" Value="{DynamicResource BrochaInformacionClara}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaInformacion}" />
+        <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style x:Key="NotificacionIcono" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="0,0,12,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Segoe UI Symbol" />
+    </Style>
+
+    <Style x:Key="NotificacionTexto" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <!-- ================================================================
+         ESTADO DE CARGA Y VACÍO
+         ================================================================ -->
+
+    <Style x:Key="EstadoVacioContenedor" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource BrochaSuperficie}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaBorde}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource RadioBordeTarjeta}" />
+        <Setter Property="Padding" Value="40" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style x:Key="EstadoVacioIcono" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="48" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSuave}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Segoe UI Symbol" />
+        <Setter Property="Margin" Value="0,0,0,16" />
+    </Style>
+
+    <Style x:Key="EstadoVacioTexto" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSecundario}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <!-- ================================================================
+         INDICADOR DE CONEXIÓN
+         ================================================================ -->
+
+    <Style x:Key="IndicadorConexion" TargetType="Border">
+        <Setter Property="Width" Value="10" />
+        <Setter Property="Height" Value="10" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="Background" Value="{DynamicResource BrochaExito}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <Style x:Key="IndicadorConexionDesconectado" TargetType="Border" BasedOn="{DynamicResource IndicadorConexion}">
+        <Setter Property="Background" Value="{DynamicResource BrochaPeligro}" />
+    </Style>
+
+    <Style x:Key="IndicadorConexionTexto" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSecundario}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- ================================================================
+         MENÚ LATERAL
+         ================================================================ -->
+
+    <Style x:Key="ItemMenuLateral" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSecundario}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrochaSuperficieSecundaria}" />
+                <Setter Property="Foreground" Value="{DynamicResource BrochaTextoPrimario}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BrochaBordeClaro}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ItemMenuLateralSeleccionado" TargetType="Button" BasedOn="{DynamicResource ItemMenuLateral}">
+        <Setter Property="Background" Value="{DynamicResource BrochaInformacionClara}" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaInformacion}" />
+        <Setter Property="BorderThickness" Value="4,0,0,0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaInformacion}" />
+    </Style>
+
+    <Style x:Key="TituloSeccionMenu" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSuave}" />
+        <Setter Property="Margin" Value="16,20,16,8" />
+    </Style>
+
+</ResourceDictionary>

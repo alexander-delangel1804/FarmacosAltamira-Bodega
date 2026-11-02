@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Description>Capa de aplicación del Módulo de Bodega. Interfaces de servicios de negocio y DTOs.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Altamira.Bodega.Domain\Altamira.Bodega.Domain.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,289 @@
+<Page x:Class="Altamira.Bodega.Presentation.Views.AjustesView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.openxmlformats.org/expression/blend/2008"
+      xmlns:local="clr-namespace:Altamira.Bodega.Presentation.Resources"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="900"
+      Background="{DynamicResource BrochaFondo}">
+
+    <Page.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Encabezado -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,24">
+            <TextBlock Text="Ajustes de Inventario" Style="{DynamicResource EstiloTituloGrande}" />
+            <TextBlock Text="Registro de ajustes autorizados de existencias por lote" Style="{DynamicResource EstiloTextoSuave}" Margin="0,8,0,0" />
+        </StackPanel>
+
+        <!-- Información de sesión y permisos -->
+        <Border Grid.Row="1" Style="{DynamicResource EstiloTarjetaIndicador}" Margin="0,0,0,16">
+            <Grid Margin="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="Ubicación:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Text="{Binding IdUbicacion}" Style="{DynamicResource EstiloTextoBase}" FontWeight="Bold" VerticalAlignment="Center" Margin="8,0,24,0" />
+
+                <TextBlock Grid.Column="2" Text="Permisos:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="3" Text="{Binding PermiteAjustes, Converter={StaticResource BoolToVis}, ConverterParameter=habilitado}" Style="{DynamicResource EstiloTextoBase}" FontWeight="Bold" VerticalAlignment="Center" Margin="8,0,0,0" />
+            </Grid>
+        </Border>
+
+        <!-- Formulario de ajuste -->
+        <Border Grid.Row="2" Style="{DynamicResource EstiloTarjetaIndicador}">
+            <Grid Margin="24">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Título de sección -->
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Datos del Ajuste" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,0,16" />
+
+                <!-- Ubicación -->
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Ubicación:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding IdUbicacion}" Style="{DynamicResource EstiloTextoBase}" VerticalAlignment="Center" />
+
+                <!-- Búsqueda de producto -->
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Producto:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Text="{Binding BusquedaProducto, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" />
+                    <Button Grid.Column="1" Content="Buscar" Style="{DynamicResource EstiloBotonPrimario}" Command="{Binding CargarProductosCommand}" Padding="12,4" Margin="8,0,0,0" />
+                </Grid>
+
+                <!-- Lista de productos -->
+                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource ContenedorTabla}" MaxHeight="150">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Background="{DynamicResource BrochaSuperficieSecundaria}" Padding="8,4">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="150" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="ID" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                                <TextBlock Grid.Column="1" Text="Nombre Comercial" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                                <TextBlock Grid.Column="2" Text="Código de Barras" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                            </Grid>
+                        </Border>
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding Productos}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{DynamicResource FilaTabla}" Margin="0,2,0,0">
+                                            <Grid Margin="8,4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="150" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding IdProducto}" Style="{DynamicResource CeldaTabla}" />
+                                                <TextBlock Grid.Column="1" Text="{Binding NombreComercial}" Style="{DynamicResource CeldaTabla}" />
+                                                <TextBlock Grid.Column="2" Text="{Binding CodigoBarras}" Style="{DynamicResource CeldaTabla}" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+
+                <!-- Producto seleccionado -->
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Producto Seleccionado:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding NombreProductoSeleccionado}" Style="{DynamicResource EstiloTextoBase}" FontWeight="Bold" VerticalAlignment="Center" />
+
+                <!-- Lote seleccionado -->
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Lote:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <Grid Grid.Row="5" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Text="{Binding NumeroLoteSeleccionado, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" />
+                    <Button Grid.Column="1" Content="Cargar Lotes" Style="{DynamicResource EstiloBotonPrimario}" Command="{Binding CargarLotesCommand}" Padding="12,4" Margin="8,0,0,0" />
+                </Grid>
+
+                <!-- Lista de lotes -->
+                <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource ContenedorTabla}" MaxHeight="150">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Background="{DynamicResource BrochaSuperficieSecundaria}" Padding="8,4">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="ID Lote" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                                <TextBlock Grid.Column="1" Text="Número de Lote" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                                <TextBlock Grid.Column="2" Text="Caducidad" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                                <TextBlock Grid.Column="3" Text="Estado" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                            </Grid>
+                        </Border>
+                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding Lotes}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{DynamicResource FilaTabla}" Margin="0,2,0,0">
+                                            <Grid Margin="8,4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="150" />
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="100" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding IdLote}" Style="{DynamicResource CeldaTabla}" />
+                                                <TextBlock Grid.Column="1" Text="{Binding NumeroLote}" Style="{DynamicResource CeldaTabla}" />
+                                                <TextBlock Grid.Column="2" Text="{Binding FechaCaducidad, StringFormat='dd/MM/yyyy'}" Style="{DynamicResource CeldaTabla}" />
+                                                <TextBlock Grid.Column="3" Text="{Binding Estado}" Style="{DynamicResource CeldaTabla}" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+
+                <!-- Lote seleccionado -->
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Lote Seleccionado:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding NumeroLoteSeleccionado}" Style="{DynamicResource EstiloTextoBase}" FontWeight="Bold" VerticalAlignment="Center" />
+
+                <!-- Existencia actual -->
+                <TextBlock Grid.Row="8" Grid.Column="0" Text="Existencia Actual:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding ExistenciaActual, StringFormat='N0 unidades'}" Style="{DynamicResource EstiloTextoBase}" FontWeight="Bold" VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="8" Grid.Column="2" Text="Cargar Existencia:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="8,0,0,8" VerticalAlignment="Center" />
+                <Button Grid.Row="8" Grid.Column="3" Content="Cargar" Style="{DynamicResource EstiloBotonSecundario}" Command="{Binding CargarExistenciaDelLoteCommand}" Padding="12,4" Margin="8,0,0,0" />
+            </Grid>
+        </Border>
+
+        <!-- Detalles del ajuste -->
+        <Border Grid.Row="3" Style="{DynamicResource EstiloTarjetaIndicador}" Margin="0,16,0,0">
+            <Grid Margin="24">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Título de sección -->
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Detalles del Ajuste" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,0,16" />
+
+                <!-- Tipo de ajuste -->
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Tipo de Ajuste:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <RadioButton Content="Positivo (+)" GroupName="TipoAjuste" IsChecked="{Binding TipoAjuste, Converter={StaticResource BoolToVis}, ConverterParameter=positivo}" Style="{DynamicResource MaterialDesignRadioButton}" Margin="0,0,16,0" />
+                    <RadioButton Content="Negativo (-)" GroupName="TipoAjuste" IsChecked="{Binding TipoAjuste, Converter={StaticResource BoolToVis}, ConverterParameter=negativo}" Style="{DynamicResource MaterialDesignRadioButton}" Margin="0,0,16,0" />
+                </StackPanel>
+
+                <!-- Cantidad -->
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Cantidad:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CantidadAjuste, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" Width="100" />
+
+                <!-- Motivo -->
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Motivo:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Top" />
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Motivo, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" TextWrapping="Wrap" Height="80" AcceptsReturn="True" />
+
+                <!-- Resultado esperado -->
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Resultado Esperado:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="0,0,8,8" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ResultadoEsperado, StringFormat='N0 unidades'}" Style="{DynamicResource EstiloTextoBase}" FontWeight="Bold" VerticalAlignment="Center" />
+
+                <!-- Advertencia de existencia negativa -->
+                <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Background="#FFF3CD" BorderBrush="#FFC107" BorderThickness="1" Padding="12" Margin="0,16,0,0" Visibility="{Binding TipoAjuste, Converter={StaticResource BoolToVis}, ConverterParameter=negativo}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="⚠" Style="{DynamicResource NotificacionIcono}" Foreground="#856404" Margin="0,0,8,0" />
+                        <TextBlock Text="Al confirmar, la existencia se reducirá. Asegúrese de que la cantidad no supere el inventario disponible." Style="{DynamicResource EstiloTextoSuave}" Foreground="#856404" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Botones de acción -->
+        <Border Grid.Row="3" HorizontalAlignment="Right" Margin="0,16,24,0">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Limpiar" Style="{DynamicResource EstiloBotonSecundario}"
+                        Command="{Binding LimpiarTodoCommand}" Padding="16,12" MinWidth="100" Margin="0,0,16,0" />
+                <Button Content="Registrar Ajuste" Style="{DynamicResource EstiloBotonPrimario}"
+                        Command="{Binding RegistrarAjusteCommand}" Padding="24,12" MinWidth="160" />
+            </StackPanel>
+        </Border>
+
+        <!-- Mensajes -->
+        <Border Grid.Row="4"
+                Style="{DynamicResource NotificacionError}"
+                Visibility="{Binding HayMensajeError, Converter={StaticResource BoolToVis}}"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0,16,0,0"
+                Panel.ZIndex="10"
+                Width="400">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="⚠" Style="{DynamicResource NotificacionIcono}" Foreground="{DynamicResource BrochaPeligro}" />
+                <TextBlock Text="{Binding MensajeError}" Style="{DynamicResource NotificacionTexto}" Foreground="{DynamicResource BrochaPeligro}" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="4"
+                Style="{DynamicResource NotificacionError}"
+                Visibility="{Binding HayMensajeExito, Converter={StaticResource BoolToVis}}"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0,16,0,0"
+                Panel.ZIndex="10"
+                Width="400">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="✅" Style="{DynamicResource NotificacionIcono}" Foreground="{DynamicResource BrochaExito}" />
+                <TextBlock Text="{Binding MensajeExito}" Style="{DynamicResource NotificacionTexto}" Foreground="{DynamicResource BrochaExito}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

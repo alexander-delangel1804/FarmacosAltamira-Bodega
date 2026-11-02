@@ -1,0 +1,15 @@
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\bin\Debug\net6.0\Altamira.Bodega.Application.deps.json
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\bin\Debug\net6.0\Altamira.Bodega.Application.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\bin\Debug\net6.0\Altamira.Bodega.Application.pdb
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\bin\Debug\net6.0\Altamira.Bodega.Domain.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\bin\Debug\net6.0\Altamira.Bodega.Domain.pdb
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.Bodega.Application.csproj.AssemblyReference.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.Bodega.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.Bodega.Application.AssemblyInfoInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.Bodega.Application.AssemblyInfo.cs
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.Bodega.Application.csproj.CoreCompileInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.AE1D94F5.Up2Date
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.Bodega.Application.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\refint\Altamira.Bodega.Application.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\Altamira.Bodega.Application.pdb
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net6.0\ref\Altamira.Bodega.Application.dll

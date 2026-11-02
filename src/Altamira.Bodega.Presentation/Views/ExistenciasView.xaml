@@ -1,0 +1,219 @@
+<Page x:Class="Altamira.Bodega.Presentation.Views.ExistenciasView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Altamira.Bodega.Presentation.Resources"
+      mc:Ignorable="d"
+      d:DesignHeight="600" d:DesignWidth="900"
+      Background="{DynamicResource BrochaFondo}">
+
+    <Page.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Encabezado de la página -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,24">
+            <TextBlock Text="Existencias por Ubicación"
+                       Style="{DynamicResource EstiloTituloGrande}" />
+            <TextBlock Text="Consulta de inventario por producto, lote y ubicación"
+                       Style="{DynamicResource EstiloTextoSuave}" Margin="0,8,0,0" />
+        </StackPanel>
+
+        <!-- Barra de búsqueda y filtros -->
+        <Border Grid.Row="1"
+                Style="{DynamicResource EstiloTarjetaIndicador}"
+                Margin="0,0,0,16">
+            <Grid Margin="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Style="{DynamicResource CampoBusqueda}" Margin="0,0,8,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0"
+                                 x:Name="TxtBusqueda"
+                                 Text="{Binding Busqueda, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{DynamicResource EstiloCampoTexto}"
+                                 BorderThickness="0"
+                                 Background="Transparent">
+                            <TextBox.ToolTip>
+                                <TextBlock Text="Buscar por producto, lote o ubicación" />
+                            </TextBox.ToolTip>
+                        </TextBox>
+                        <Button Grid.Column="1"
+                                Content="Buscar"
+                                Style="{DynamicResource EstiloBotonPrimario}"
+                                Padding="16,4"
+                                MinHeight="32" />
+                    </Grid>
+                </Border>
+
+                <Button Grid.Column="1" Margin="8,0,0,0"
+                        Content="Refrescar"
+                        Style="{DynamicResource EstiloBotonSecundario}"
+                        Command="{Binding RefrescarCommand}"
+                        Padding="16,8"
+                        MinHeight="40" />
+
+                <Button Grid.Column="2" Margin="8,0,8,0"
+                        Content="Exportar"
+                        Style="{DynamicResource EstiloBotonSecundario}"
+                        Padding="16,8"
+                        MinHeight="40" />
+
+                <Button Grid.Column="3"
+                        Content="Ajuste de Inventario"
+                        Style="{DynamicResource EstiloBotonPrimario}"
+                        Padding="16,8"
+                        MinHeight="40" />
+            </Grid>
+        </Border>
+
+        <!-- Tabla de existencias -->
+        <Border Grid.Row="2"
+                Style="{DynamicResource ContenedorTabla}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" /> <!-- Encabezados -->
+                    <RowDefinition Height="*" />    <!-- Filas -->
+                </Grid.RowDefinitions>
+
+                <!-- Encabezados de columna -->
+                <Border Grid.Row="0"
+                        Background="{DynamicResource BrochaSuperficieSecundaria}"
+                        BorderBrush="{DynamicResource BrochaBorde}"
+                        BorderThickness="0,0,0,1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Producto" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="1" Text="Lote" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="2" Text="Caducidad" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="3" Text="Ubicación" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="4" Text="Cantidad" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="5" Text="Reservado" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="6" Text="Disponible" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="7" Text="Estado" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                    </Grid>
+                </Border>
+
+                <!-- Filas de datos -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Existencias}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{DynamicResource FilaTabla}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="120" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0" Text="{Binding ProductoNombre}"
+                                                   Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="1" Text="{Binding NumeroLote}"
+                                                   Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="2" Text="{Binding FechaCaducidad, StringFormat='dd/MM/yyyy'}"
+                                                   Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="3" Text="{Binding UbicacionNombre}"
+                                                   Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="4" Text="{Binding Cantidad}"
+                                                   Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="5" Text="{Binding CantidadReservada}"
+                                                   Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="6" Text="{Binding Disponible}"
+                                                   Style="{DynamicResource CeldaTabla}" />
+                                        <Border Grid.Column="7">
+                                            <TextBlock Text="Disponible" Style="{DynamicResource EtiquetaEstadoTexto}" />
+                                        </Border>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <!-- Estado vacío -->
+        <Border Grid.Row="2"
+                Style="{DynamicResource EstadoVacioContenedor}"
+                Visibility="{Binding Existencias.Count, Converter={DynamicResource BoolToVis}, ConverterParameter=inverse}">
+            <StackPanel>
+                <TextBlock Text="📦"
+                           Style="{DynamicResource EstadoVacioIcono}" />
+                <TextBlock Text="No hay existencias registradas"
+                           Style="{DynamicResource EstadoVacioTexto}" />
+                <TextBlock Text="Registre una recepción de mercancía para comenzar a gestionar inventario."
+                           Style="{DynamicResource EstiloTextoSuave}"
+                           HorizontalAlignment="Center"
+                           Margin="0,8,0,0" />
+            </StackPanel>
+        </Border>
+
+        <!-- Estado de carga -->
+        <Border Grid.Row="2"
+                Background="#80FFFFFF"
+                Visibility="{Binding EstaCargando, Converter={DynamicResource BoolToVis}}"
+                Panel.ZIndex="10">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="⏳"
+                           FontSize="32"
+                           Foreground="{DynamicResource BrochaPrimaria}"
+                           Margin="0,0,0,16" />
+                <TextBlock Text="Cargando existencias..."
+                           Style="{DynamicResource EstiloTextoBase}"
+                           Foreground="{DynamicResource BrochaTextoSecundario}" />
+            </StackPanel>
+        </Border>
+
+        <!-- Mensaje de error -->
+        <Border Grid.Row="2"
+                Style="{DynamicResource NotificacionError}"
+                Visibility="{Binding MensajeError, Converter={DynamicResource BoolToVis}, ConverterParameter=inverse}"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0,16,0,0"
+                Panel.ZIndex="10"
+                Width="400">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="⚠"
+                           Style="{DynamicResource NotificacionIcono}"
+                           Foreground="{DynamicResource BrochaPeligro}" />
+                <TextBlock Text="{Binding MensajeError}"
+                           Style="{DynamicResource NotificacionTexto}"
+                           Foreground="{DynamicResource BrochaPeligro}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

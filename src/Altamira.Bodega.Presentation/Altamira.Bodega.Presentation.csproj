@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Description>Capa de presentación del Módulo de Bodega. Views, ViewModels y estilos Material Design.</Description>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Altamira.Bodega.Application\Altamira.Bodega.Application.csproj" />
+    <ProjectReference Include="..\Altamira.Bodega.Domain\Altamira.Bodega.Domain.csproj" />
+    <ProjectReference Include="..\Altamira.Bodega.Infrastructure\Altamira.Bodega.Infrastructure.csproj" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\bin\Debug\net8.0\Altamira.Bodega.Domain.deps.json
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\bin\Debug\net8.0\Altamira.Bodega.Domain.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\bin\Debug\net8.0\Altamira.Bodega.Domain.pdb
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\Altamira.Bodega.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\Altamira.Bodega.Domain.AssemblyInfoInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\Altamira.Bodega.Domain.AssemblyInfo.cs
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\Altamira.Bodega.Domain.csproj.CoreCompileInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\Altamira.Bodega.Domain.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\refint\Altamira.Bodega.Domain.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\Altamira.Bodega.Domain.pdb
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Domain\obj\Debug\net8.0\ref\Altamira.Bodega.Domain.dll

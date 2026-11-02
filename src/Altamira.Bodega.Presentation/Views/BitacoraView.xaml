@@ -1,0 +1,11 @@
+<Page x:Class="Altamira.Bodega.Presentation.Views.BitacoraView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Bitácora de Operaciones">
+    <Grid>
+        <TextBlock Text="Bitácora de Operaciones"
+                   Style="{DynamicResource EstiloTituloGrande}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+    </Grid>
+</Page>

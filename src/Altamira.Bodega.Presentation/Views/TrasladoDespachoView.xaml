@@ -1,0 +1,150 @@
+<Page x:Class="Altamira.Bodega.Presentation.Views.TrasladoDespachoView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.openxmlformats.org/expression/blend/2008"
+      xmlns:local="clr-namespace:Altamira.Bodega.Presentation.Resources"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Background="{DynamicResource BrochaFondo}">
+
+    <Page.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Encabezado -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,24">
+            <TextBlock Text="Despacho de Traslados" Style="{DynamicResource EstiloTituloGrande}" />
+            <TextBlock Text="Revisar y despachar traslados pendientes (SOLICITADO → EN_TRANSITO)" Style="{DynamicResource EstiloTextoSuave}" Margin="0,8,0,0" />
+        </StackPanel>
+
+        <!-- Búsqueda -->
+        <Border Grid.Row="1" Style="{DynamicResource EstiloTarjetaIndicador}" Margin="0,0,0,16">
+            <Grid Margin="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Style="{DynamicResource CampoBusqueda}" Margin="0,0,8,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0"
+                                 Text="{Binding Busqueda, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{DynamicResource EstiloCampoTexto}"
+                                 BorderThickness="0"
+                                 Background="Transparent">
+                            <TextBox.ToolTip>
+                                <TextBlock Text="Buscar por folio, origen, destino o usuario" />
+                            </TextBox.ToolTip>
+                        </TextBox>
+                        <Button Grid.Column="1"
+                                Content="Buscar"
+                                Style="{DynamicResource EstiloBotonPrimario}"
+                                Command="{Binding CargarTrasladosPendientesCommand}"
+                                Padding="16,4"
+                                MinHeight="32" />
+                    </Grid>
+                </Border>
+                <Button Grid.Column="1" Content="Limpiar" Style="{DynamicResource EstiloBotonSecundario}"
+                        Command="{Binding LimpiarBusquedaCommand}" Padding="16,8" Margin="8,0,0,0" />
+            </Grid>
+        </Border>
+
+        <!-- Tabla de traslados pendientes -->
+        <Border Grid.Row="2" Style="{DynamicResource EstiloTarjetaIndicador}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Encabezados -->
+                <Border Grid.Row="0" Background="{DynamicResource BrochaSuperficieSecundaria}" BorderBrush="{DynamicResource BrochaBorde}" BorderThickness="0,0,0,1">
+                    <Grid Margin="8,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Folio" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="1" Text="Origen" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="2" Text="Destino" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="3" Text="Fecha Solicitud" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="4" Text="Usuario" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                        <TextBlock Grid.Column="5" Text="Acción" Style="{DynamicResource EncabezadoColumnaTabla}" />
+                    </Grid>
+                </Border>
+
+                <!-- Filas -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding TrasladosPendientes}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{DynamicResource FilaTabla}" Margin="0,4,0,0">
+                                    <Grid Margin="8,4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="120" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Grid.Column="0" Text="{Binding Folio}" Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="1" Text="{Binding OrigenNombre}" Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="2" Text="{Binding DestinoNombre}" Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="3" Text="{Binding FechaSolicitud, StringFormat='dd/MM/yyyy HH:mm'}" Style="{DynamicResource CeldaTabla}" />
+                                        <TextBlock Grid.Column="4" Text="{Binding UsuarioSolicitaNombre}" Style="{DynamicResource CeldaTabla}" />
+                                        <Button Grid.Column="5" Content="Despachar" Style="{DynamicResource EstiloBotonPrimario}"
+                                                Command="{Binding DataContext.DespacharTrasladoCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                CommandParameter="{Binding IdTraslado}" Padding="12,4" Margin="4,0,0,0" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <!-- Estado vacío -->
+        <Border Grid.Row="2" Style="{DynamicResource EstadoVacioContenedor}" Visibility="{Binding TotalPendientes, Converter={StaticResource BoolToVis}, ConverterParameter=inverse}">
+            <StackPanel>
+                <TextBlock Text="🚚" Style="{DynamicResource EstadoVacioIcono}" />
+                <TextBlock Text="No hay traslados pendientes de despacho" Style="{DynamicResource EstadoVacioTexto}" />
+                <TextBlock Text="Las solicitudes de traslado aparecerán aquí para su despacho." Style="{DynamicResource EstiloTextoSuave}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+            </StackPanel>
+        </Border>
+
+        <!-- Mensajes -->
+        <Border Grid.Row="3" Style="{DynamicResource NotificacionError}" Visibility="{Binding HayMensajeError, Converter={StaticResource BoolToVis}}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,16,0,0" Panel.ZIndex="10" Width="400">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="⚠" Style="{DynamicResource NotificacionIcono}" Foreground="{DynamicResource BrochaPeligro}" />
+                <TextBlock Text="{Binding MensajeError}" Style="{DynamicResource NotificacionTexto}" Foreground="{DynamicResource BrochaPeligro}" />
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3" Style="{DynamicResource NotificacionError}" Visibility="{Binding HayMensajeExito, Converter={StaticResource BoolToVis}}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,16,0,0" Panel.ZIndex="10" Width="400">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="✅" Style="{DynamicResource NotificacionIcono}" Foreground="{DynamicResource BrochaExito}" />
+                <TextBlock Text="{Binding MensajeExito}" Style="{DynamicResource NotificacionTexto}" Foreground="{DynamicResource BrochaExito}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
