@@ -15,3 +15,4 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Infra
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Infrastructure\obj\Debug\net10.0\refint\Altamira.Bodega.Infrastructure.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Infrastructure\obj\Debug\net10.0\Altamira.Bodega.Infrastructure.pdb
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Infrastructure\obj\Debug\net10.0\ref\Altamira.Bodega.Infrastructure.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Infrastructure\obj\Debug\net10.0\Altamira.Bodega.Infrastructure.sourcelink.json

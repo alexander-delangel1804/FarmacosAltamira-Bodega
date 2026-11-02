@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Punto de entrada del Módulo de Bodega Fármacos Altamira. Aplicación de escritorio" +
     " WPF."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6277a84605a1280ebff0868248bdc492c3df5906")]
 [assembly: System.Reflection.AssemblyProductAttribute("Altamira.Bodega.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Altamira.Bodega.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

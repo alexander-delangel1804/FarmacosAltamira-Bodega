@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Capa de dominio del Módulo de Bodega Fármacos Altamira. Entidades, enumeraciones " +
     "y excepciones de negocio."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6277a84605a1280ebff0868248bdc492c3df5906")]
 [assembly: System.Reflection.AssemblyProductAttribute("Altamira.Bodega.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Altamira.Bodega.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -66,3 +66,4 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\o
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.Core.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.Extensions.Http.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.sourcelink.json
