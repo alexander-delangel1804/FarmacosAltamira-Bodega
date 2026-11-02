@@ -35,6 +35,9 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\b
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Microsoft.Extensions.Options.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.Core.dll
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.Extensions.Http.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Serilog.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Serilog.Extensions.Hosting.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Serilog.Extensions.Logging.dll
@@ -57,13 +60,10 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\o
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.AssemblyInfoInputs.cache
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.AssemblyInfo.cs
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.csproj.CoreCompileInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.sourcelink.json
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.5E136BDD.Up2Date
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\refint\Altamira.Bodega.App.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.pdb
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.genruntimeconfig.cache
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\ref\Altamira.Bodega.App.dll
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.dll
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.Core.dll
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Polly.Extensions.Http.dll
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\obj\Debug\net10.0-windows\Altamira.Bodega.App.sourcelink.json

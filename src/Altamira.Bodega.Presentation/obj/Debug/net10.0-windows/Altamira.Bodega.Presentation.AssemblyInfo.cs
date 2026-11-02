@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Capa de presentación del Módulo de Bodega. Views, ViewModels y estilos Material D" +
     "esign."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6277a84605a1280ebff0868248bdc492c3df5906")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29cd44cfd2a86325edeba774913fa0fea4458955")]
 [assembly: System.Reflection.AssemblyProductAttribute("Altamira.Bodega.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Altamira.Bodega.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -122,18 +122,18 @@
         <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
     </Style>
 
-    <Style x:Key="EstiloTituloGrande" TargetType="TextBlock" BasedOn="{DynamicResource EstiloTextoBase}">
+    <Style x:Key="EstiloTituloGrande" TargetType="TextBlock" BasedOn="{StaticResource EstiloTextoBase}">
         <Setter Property="FontSize" Value="{DynamicResource TamanoTextoTituloGrande}" />
         <Setter Property="FontFamily" Value="{DynamicResource FuenteTitulos}" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaPrimaria}" />
     </Style>
 
-    <Style x:Key="EstiloTextoSecundario" TargetType="TextBlock" BasedOn="{DynamicResource EstiloTextoBase}">
+    <Style x:Key="EstiloTextoSecundario" TargetType="TextBlock" BasedOn="{StaticResource EstiloTextoBase}">
         <Setter Property="FontSize" Value="{DynamicResource TamanoTextoNormal}" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSecundario}" />
     </Style>
 
-    <Style x:Key="EstiloTextoSuave" TargetType="TextBlock" BasedOn="{DynamicResource EstiloTextoBase}">
+    <Style x:Key="EstiloTextoSuave" TargetType="TextBlock" BasedOn="{StaticResource EstiloTextoBase}">
         <Setter Property="FontSize" Value="{DynamicResource TamanoTextoPequeno}" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaTextoSuave}" />
     </Style>
@@ -158,7 +158,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="EstiloBotonPrimario" TargetType="Button" BasedOn="{DynamicResource EstiloBotonBase}">
+    <Style x:Key="EstiloBotonPrimario" TargetType="Button" BasedOn="{StaticResource EstiloBotonBase}">
         <Setter Property="Background" Value="{DynamicResource BrochaPrimaria}" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaTextoInverso}" />
         <Setter Property="BorderThickness" Value="0" />
@@ -178,7 +178,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="EstiloBotonSecundario" TargetType="Button" BasedOn="{DynamicResource EstiloBotonBase}">
+    <Style x:Key="EstiloBotonSecundario" TargetType="Button" BasedOn="{StaticResource EstiloBotonBase}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaTextoPrimario}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaBorde}" />
@@ -192,7 +192,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="EstiloBotonExito" TargetType="Button" BasedOn="{DynamicResource EstiloBotonBase}">
+    <Style x:Key="EstiloBotonExito" TargetType="Button" BasedOn="{StaticResource EstiloBotonBase}">
         <Setter Property="Background" Value="{DynamicResource BrochaExito}" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaTextoInverso}" />
         <Setter Property="BorderThickness" Value="0" />
@@ -200,7 +200,7 @@
         <Setter Property="MinHeight" Value="40" />
     </Style>
 
-    <Style x:Key="EstiloBotonPeligro" TargetType="Button" BasedOn="{DynamicResource EstiloBotonBase}">
+    <Style x:Key="EstiloBotonPeligro" TargetType="Button" BasedOn="{StaticResource EstiloBotonBase}">
         <Setter Property="Background" Value="{DynamicResource BrochaPeligro}" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaTextoInverso}" />
         <Setter Property="BorderThickness" Value="0" />
@@ -269,7 +269,7 @@
     </Style>
 
     <!-- Tarjeta de indicador con color de estado -->
-    <Style x:Key="EstiloTarjetaEstado" TargetType="Border" BasedOn="{DynamicResource EstiloTarjetaIndicador}">
+    <Style x:Key="EstiloTarjetaEstado" TargetType="Border" BasedOn="{StaticResource EstiloTarjetaIndicador}">
         <Setter Property="BorderThickness" Value="0,4,0,0" />
     </Style>
 

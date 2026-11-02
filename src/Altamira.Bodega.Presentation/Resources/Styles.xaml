@@ -45,25 +45,25 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
 
-    <Style x:Key="EtiquetaEstadoDisponible" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+    <Style x:Key="EtiquetaEstadoDisponible" TargetType="Border" BasedOn="{StaticResource EtiquetaEstado}">
         <Setter Property="Background" Value="{DynamicResource BrochaExitoClara}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaExito}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="EtiquetaEstadoBajo" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+    <Style x:Key="EtiquetaEstadoBajo" TargetType="Border" BasedOn="{StaticResource EtiquetaEstado}">
         <Setter Property="Background" Value="{DynamicResource BrochaAdvertenciaClara}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaAdvertencia}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="EtiquetaEstadoCaducado" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+    <Style x:Key="EtiquetaEstadoCaducado" TargetType="Border" BasedOn="{StaticResource EtiquetaEstado}">
         <Setter Property="Background" Value="{DynamicResource BrochaPeligroClara}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaPeligro}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="EtiquetaEstadoProximo" TargetType="Border" BasedOn="{DynamicResource EtiquetaEstado}">
+    <Style x:Key="EtiquetaEstadoProximo" TargetType="Border" BasedOn="{StaticResource EtiquetaEstado}">
         <Setter Property="Background" Value="#EDE9FE" />
         <Setter Property="BorderBrush" Value="#8B5CF6" />
         <Setter Property="BorderThickness" Value="1" />
@@ -101,7 +101,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
 
-    <Style x:Key="FilaTablaAlternante" TargetType="Border" BasedOn="{DynamicResource FilaTabla}">
+    <Style x:Key="FilaTablaAlternante" TargetType="Border" BasedOn="{StaticResource FilaTabla}">
         <Setter Property="Background" Value="{DynamicResource BrochaSuperficieSecundaria}" />
     </Style>
 
@@ -136,25 +136,25 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
 
-    <Style x:Key="NotificacionExito" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+    <Style x:Key="NotificacionExito" TargetType="Border" BasedOn="{StaticResource NotificacionBase}">
         <Setter Property="Background" Value="{DynamicResource BrochaExitoClara}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaExito}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="NotificacionError" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+    <Style x:Key="NotificacionError" TargetType="Border" BasedOn="{StaticResource NotificacionBase}">
         <Setter Property="Background" Value="{DynamicResource BrochaPeligroClara}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaPeligro}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="NotificacionAdvertencia" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+    <Style x:Key="NotificacionAdvertencia" TargetType="Border" BasedOn="{StaticResource NotificacionBase}">
         <Setter Property="Background" Value="{DynamicResource BrochaAdvertenciaClara}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaAdvertencia}" />
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <Style x:Key="NotificacionInformacion" TargetType="Border" BasedOn="{DynamicResource NotificacionBase}">
+    <Style x:Key="NotificacionInformacion" TargetType="Border" BasedOn="{StaticResource NotificacionBase}">
         <Setter Property="Background" Value="{DynamicResource BrochaInformacionClara}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BrochaInformacion}" />
         <Setter Property="BorderThickness" Value="1" />
@@ -214,7 +214,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
     </Style>
 
-    <Style x:Key="IndicadorConexionDesconectado" TargetType="Border" BasedOn="{DynamicResource IndicadorConexion}">
+    <Style x:Key="IndicadorConexionDesconectado" TargetType="Border" BasedOn="{StaticResource IndicadorConexion}">
         <Setter Property="Background" Value="{DynamicResource BrochaPeligro}" />
     </Style>
 
@@ -258,7 +258,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ItemMenuLateralSeleccionado" TargetType="Button" BasedOn="{DynamicResource ItemMenuLateral}">
+    <Style x:Key="ItemMenuLateralSeleccionado" TargetType="Button" BasedOn="{StaticResource ItemMenuLateral}">
         <Setter Property="Background" Value="{DynamicResource BrochaInformacionClara}" />
         <Setter Property="Foreground" Value="{DynamicResource BrochaInformacion}" />
         <Setter Property="BorderThickness" Value="4,0,0,0" />

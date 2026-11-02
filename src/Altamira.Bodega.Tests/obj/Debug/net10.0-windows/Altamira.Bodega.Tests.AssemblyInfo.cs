@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Pruebas unitarias del Módulo de Bodega.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6277a84605a1280ebff0868248bdc492c3df5906")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29cd44cfd2a86325edeba774913fa0fea4458955")]
 [assembly: System.Reflection.AssemblyProductAttribute("Altamira.Bodega.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Altamira.Bodega.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

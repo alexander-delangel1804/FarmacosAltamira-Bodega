@@ -8,14 +8,14 @@ namespace Altamira.Bodega.Presentation.Views;
 
 public partial class ShellView : Window
 {
-    private readonly NavigationService _navigationService;
+    private readonly INavigationService _navigationService;
     private readonly ShellViewModel _viewModel;
 
     public ShellView(IServiceProvider serviceProvider)
     {
         InitializeComponent();
 
-        _navigationService = serviceProvider.GetRequiredService<NavigationService>();
+        _navigationService = serviceProvider.GetRequiredService<INavigationService>();
         _viewModel = serviceProvider.GetRequiredService<ShellViewModel>();
 
         _navigationService.ViewChanged += OnViewChanged;
@@ -25,8 +25,8 @@ public partial class ShellView : Window
         _navigationService.NavigateTo<DashboardViewModel>();
     }
 
-    private void OnViewChanged(FrameworkElement view)
+    private void OnViewChanged(object view)
     {
-        ContentArea.Content = view;
+        ContentArea.Content = view as FrameworkElement;
     }
 }

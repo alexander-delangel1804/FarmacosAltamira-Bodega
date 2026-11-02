@@ -8,9 +8,9 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Appli
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.Bodega.Application.AssemblyInfoInputs.cache
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.Bodega.Application.AssemblyInfo.cs
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.Bodega.Application.csproj.CoreCompileInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.Bodega.Application.sourcelink.json
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.AE1D94F5.Up2Date
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.Bodega.Application.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\refint\Altamira.Bodega.Application.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.Bodega.Application.pdb
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\ref\Altamira.Bodega.Application.dll
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Application\obj\Debug\net10.0\Altamira.Bodega.Application.sourcelink.json

@@ -1,18 +1,20 @@
 using Altamira.Bodega.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Windows;
 
 namespace Altamira.Bodega.Presentation.Services;
 
 public sealed class NavigationService : INavigationService
 {
-    private readonly Dictionary<Type, Type> _viewModelToViewMap = new();
+    private readonly Dictionary<Type, Type> _customMappings = new();
     private readonly Func<Type, FrameworkElement> _viewFactory;
     private readonly Dictionary<Type, object> _viewInstances = new();
     private readonly Stack<Type> _history = new();
 
-    public event Action<FrameworkElement>? ViewChanged;
+    public event Action<object>? ViewChanged;
 
     public NavigationService(Func<Type, FrameworkElement> viewFactory)
     {
@@ -23,16 +25,17 @@ public sealed class NavigationService : INavigationService
         where TViewModel : class
         where TView : FrameworkElement
     {
-        _viewModelToViewMap[typeof(TViewModel)] = typeof(TView);
+        _customMappings[typeof(TViewModel)] = typeof(TView);
     }
 
     public void NavigateTo<TViewModel>() where TViewModel : class
     {
         var viewModelType = typeof(TViewModel);
-        if (!_viewModelToViewMap.TryGetValue(viewModelType, out var viewType))
+        var viewType = ResolveViewType(viewModelType);
+
+        if (viewType == null)
             throw new InvalidOperationException($"No hay vista registrada para el ViewModel {viewModelType.Name}.");
 
-        // Reutilizar instancia si ya existe
         if (!_viewInstances.TryGetValue(viewModelType, out var view))
         {
             view = _viewFactory(viewType);
@@ -40,7 +43,7 @@ public sealed class NavigationService : INavigationService
         }
 
         _history.Push(viewModelType);
-        ViewChanged?.Invoke(view as FrameworkElement ?? throw new InvalidOperationException("Vista no es FrameworkElement"));
+        ViewChanged?.Invoke(view ?? throw new InvalidOperationException("Vista no es FrameworkElement"));
     }
 
     public void NavigateTo<TViewModel, TParameter>(TParameter parameter) where TViewModel : class
@@ -55,10 +58,28 @@ public sealed class NavigationService : INavigationService
         if (!CanGoBack) return;
         _history.Pop();
         var previous = _history.Peek();
-        if (_viewModelToViewMap.TryGetValue(previous, out var viewType) &&
-            _viewInstances.TryGetValue(previous, out var view))
+        if (_viewInstances.TryGetValue(previous, out var view))
         {
-            ViewChanged?.Invoke(view as FrameworkElement ?? throw new InvalidOperationException("Vista no es FrameworkElement"));
+            ViewChanged?.Invoke(view ?? throw new InvalidOperationException("Vista no es FrameworkElement"));
         }
+    }
+
+    private Type? ResolveViewType(Type viewModelType)
+    {
+        // 1. Buscar en mapeos personalizados
+        if (_customMappings.TryGetValue(viewModelType, out var customViewType))
+            return customViewType;
+
+        // 2. Convención: ViewModel -> View (reemplazar "ViewModel" con "View")
+        var viewModelName = viewModelType.Name;
+        if (viewModelName.EndsWith("ViewModel"))
+        {
+            var viewName = viewModelName.Replace("ViewModel", "View");
+            var viewType = viewModelType.Assembly.GetType(viewModelType.Namespace + "." + viewName);
+            if (viewType != null && typeof(FrameworkElement).IsAssignableFrom(viewType))
+                return viewType;
+        }
+
+        return null;
     }
 }

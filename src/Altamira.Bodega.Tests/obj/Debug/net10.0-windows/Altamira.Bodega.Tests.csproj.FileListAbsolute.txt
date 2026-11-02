@@ -1,10 +1,5 @@
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\.msCoverageSourceRootsMapping_Altamira.Bodega.Tests
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\CoverletSourceRootsMapping_Altamira.Bodega.Tests
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.csproj.AssemblyReference.cache
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.AssemblyInfoInputs.cache
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.AssemblyInfo.cs
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.csproj.CoreCompileInputs.cache
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\testhost.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\xunit.abstractions.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\testhost.exe
@@ -121,10 +116,15 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\Altamira.Bodega.Application.pdb
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\Altamira.Bodega.Presentation.pdb
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\bin\Debug\net10.0-windows\Altamira.Bodega.Infrastructure.pdb
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.csproj.AssemblyReference.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.AssemblyInfoInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.AssemblyInfo.cs
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.csproj.CoreCompileInputs.cache
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.sourcelink.json
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.20F8EDC5.Up2Date
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\refint\Altamira.Bodega.Tests.dll
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.pdb
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.genruntimeconfig.cache
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\ref\Altamira.Bodega.Tests.dll
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Tests\obj\Debug\net10.0-windows\Altamira.Bodega.Tests.sourcelink.json

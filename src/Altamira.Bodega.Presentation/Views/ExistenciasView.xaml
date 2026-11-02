@@ -168,7 +168,7 @@
         <!-- Estado vacío -->
         <Border Grid.Row="2"
                 Style="{DynamicResource EstadoVacioContenedor}"
-                Visibility="{Binding Existencias.Count, Converter={DynamicResource BoolToVis}, ConverterParameter=inverse}">
+                Visibility="{Binding Existencias.Count, Converter={StaticResource BoolToVis}, ConverterParameter=inverse}">
             <StackPanel>
                 <TextBlock Text="📦"
                            Style="{DynamicResource EstadoVacioIcono}" />
@@ -184,7 +184,7 @@
         <!-- Estado de carga -->
         <Border Grid.Row="2"
                 Background="#80FFFFFF"
-                Visibility="{Binding EstaCargando, Converter={DynamicResource BoolToVis}}"
+                Visibility="{Binding EstaCargando, Converter={StaticResource BoolToVis}}"
                 Panel.ZIndex="10">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="⏳"
@@ -200,7 +200,7 @@
         <!-- Mensaje de error -->
         <Border Grid.Row="2"
                 Style="{DynamicResource NotificacionError}"
-                Visibility="{Binding MensajeError, Converter={DynamicResource BoolToVis}, ConverterParameter=inverse}"
+                Visibility="{Binding MensajeError, Converter={StaticResource BoolToVis}, ConverterParameter=inverse}"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center"
                 Margin="0,16,0,0"

@@ -1,4 +1,5 @@
 using Altamira.Bodega.Domain.Dtos;
+using System;
 
 namespace Altamira.Bodega.Domain.Interfaces;
 
@@ -75,6 +76,7 @@ public interface IAjusteService
 
 public interface INavigationService
 {
+    event Action<object>? ViewChanged;
     void NavigateTo<TViewModel>() where TViewModel : class;
     void NavigateTo<TViewModel, TParameter>(TParameter parameter) where TViewModel : class;
     bool CanGoBack { get; }

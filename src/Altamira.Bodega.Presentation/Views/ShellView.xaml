@@ -201,9 +201,10 @@
         </Border>
 
         <!-- ÁREA DE CONTENIDO CENTRAL -->
-        <ContentControl Grid.Row="1" Grid.Column="1"
-                        x:Name="ContentArea"
-                        Margin="24" />
+        <Frame Grid.Row="1" Grid.Column="1"
+               x:Name="ContentArea"
+               Margin="24"
+               NavigationUIVisibility="Hidden" />
 
         <!-- BARRA DE ESTADO -->
         <Border Grid.Row="2" Grid.ColumnSpan="2"
