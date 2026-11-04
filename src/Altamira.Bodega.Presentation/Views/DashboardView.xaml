@@ -13,11 +13,12 @@
     </UserControl.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
 
         <!-- Título -->
         <TextBlock Grid.Row="0"
@@ -153,7 +154,7 @@
         </Grid>
 
         <!-- Mensaje de error -->
-        <Border Grid.Row="2" Grid.ColumnSpan="2"
+        <Border Grid.Row="3" Grid.ColumnSpan="2"
                 Style="{DynamicResource NotificacionError}"
                 Visibility="{Binding MensajeError, Converter={StaticResource BoolToVis}, ConverterParameter=inverse}"
                 Margin="0,24,0,0"

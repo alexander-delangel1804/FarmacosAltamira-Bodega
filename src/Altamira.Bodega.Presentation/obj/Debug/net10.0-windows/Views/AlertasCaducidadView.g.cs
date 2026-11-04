@@ -52,7 +52,7 @@ namespace Altamira.Bodega.Presentation.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Altamira.Bodega.Presentation;component/views/alertascaducidadview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Altamira.Bodega.Presentation;V1.0.0.0;component/views/alertascaducidadview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AlertasCaducidadView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

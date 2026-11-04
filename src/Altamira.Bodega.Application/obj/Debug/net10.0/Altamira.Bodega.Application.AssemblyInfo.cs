@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Capa de aplicación del Módulo de Bodega. Interfaces de servicios de negocio y DTO" +
     "s."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62134b3a94531ddd898f34c6a226131d289b22a5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20558ceeae9c61fe3b81b201e5e51f740c208e73")]
 [assembly: System.Reflection.AssemblyProductAttribute("Altamira.Bodega.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Altamira.Bodega.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

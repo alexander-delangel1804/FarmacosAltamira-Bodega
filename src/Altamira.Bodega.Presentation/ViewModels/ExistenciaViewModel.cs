@@ -68,9 +68,9 @@ public partial class ExistenciaViewModel : ObservableObject
                 Existencias.Add(e);
 
             TotalRegistros = Existencias.Count;
-            TotalPaginas = (int)System.Math.Ceiling((double)TotalRegistros / Math.Max(1, _tamanoPagina));
-            TieneSiguiente = _paginaActual < TotalPaginas;
-            TieneAnterior = _paginaActual > 1;
+            TotalPaginas = (int)System.Math.Ceiling((double)TotalRegistros / Math.Max(1, TamanoPagina));
+            TieneSiguiente = PaginaActual < TotalPaginas;
+            TieneAnterior = PaginaActual > 1;
         }
         catch (Exception ex)
         {
@@ -86,9 +86,9 @@ public partial class ExistenciaViewModel : ObservableObject
     {
         var resultado = lista.AsEnumerable();
 
-        if (!string.IsNullOrWhiteSpace(_busqueda))
+        if (!string.IsNullOrWhiteSpace(Busqueda))
         {
-            var b = _busqueda.ToLowerInvariant();
+            var b = Busqueda.ToLowerInvariant();
             resultado = resultado.Where(e =>
                 e.ProductoNombre.ToLowerInvariant().Contains(b) ||
                 e.CodigoBarras.ToLowerInvariant().Contains(b) ||
@@ -96,21 +96,21 @@ public partial class ExistenciaViewModel : ObservableObject
                 e.UbicacionNombre.ToLowerInvariant().Contains(b));
         }
 
-        if (!string.IsNullOrWhiteSpace(_filtroProducto))
+        if (!string.IsNullOrWhiteSpace(FiltroProducto))
         {
-            var p = _filtroProducto.ToLowerInvariant();
+            var p = FiltroProducto.ToLowerInvariant();
             resultado = resultado.Where(e => e.ProductoNombre.ToLowerInvariant().Contains(p));
         }
 
-        if (!string.IsNullOrWhiteSpace(_filtroLote))
+        if (!string.IsNullOrWhiteSpace(FiltroLote))
         {
-            var l = _filtroLote.ToLowerInvariant();
+            var l = FiltroLote.ToLowerInvariant();
             resultado = resultado.Where(e => e.NumeroLote.ToLowerInvariant().Contains(l));
         }
 
-        if (!string.IsNullOrWhiteSpace(_filtroEstado))
+        if (!string.IsNullOrWhiteSpace(FiltroEstado))
         {
-            var eEstado = _filtroEstado.ToLowerInvariant();
+            var eEstado = FiltroEstado.ToLowerInvariant();
             resultado = resultado.Where(e =>
             {
                 // Determinar estado basado en datos disponibles
@@ -147,7 +147,7 @@ private string CalcularEstado(ExistenciaDto e)
     [RelayCommand]
     private async Task BuscarAsync()
     {
-        _paginaActual = 1;
+        PaginaActual = 1;
         await CargarExistenciasAsync();
     }
 
@@ -164,17 +164,17 @@ private string CalcularEstado(ExistenciaDto e)
         FiltroProducto = string.Empty;
         FiltroLote = string.Empty;
         FiltroEstado = string.Empty;
-        _paginaActual = 1;
+        PaginaActual = 1;
         _ = CargarExistenciasAsync();
     }
 
     [RelayCommand]
     private void CambiarPagina(int delta)
     {
-        var nuevaPagina = _paginaActual + delta;
+        var nuevaPagina = PaginaActual + delta;
         if (nuevaPagina < 1 || nuevaPagina > TotalPaginas)
             return;
-        _paginaActual = nuevaPagina;
+        PaginaActual = nuevaPagina;
         _ = CargarExistenciasAsync();
     }
 }

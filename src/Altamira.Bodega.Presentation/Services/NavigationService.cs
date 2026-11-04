@@ -1,4 +1,5 @@
 using Altamira.Bodega.Domain.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,16 @@ public sealed class NavigationService : INavigationService
 {
     private readonly Dictionary<Type, Type> _customMappings = new();
     private readonly Func<Type, FrameworkElement> _viewFactory;
+    private readonly IServiceProvider _serviceProvider;
     private readonly Dictionary<Type, object> _viewInstances = new();
     private readonly Stack<Type> _history = new();
 
     public event Action<object>? ViewChanged;
 
-    public NavigationService(Func<Type, FrameworkElement> viewFactory)
+    public NavigationService(Func<Type, FrameworkElement> viewFactory, IServiceProvider serviceProvider)
     {
         _viewFactory = viewFactory;
+        _serviceProvider = serviceProvider;
     }
 
     public void Register<TViewModel, TView>()
@@ -38,7 +41,10 @@ public sealed class NavigationService : INavigationService
 
         if (!_viewInstances.TryGetValue(viewModelType, out var view))
         {
-            view = _viewFactory(viewType);
+            var viewInstance = _viewFactory(viewType);
+            var viewModel = _serviceProvider.GetRequiredService(viewModelType);
+            viewInstance.DataContext = viewModel;
+            view = viewInstance;
             _viewInstances[viewModelType] = view;
         }
 
@@ -66,11 +72,9 @@ public sealed class NavigationService : INavigationService
 
     private Type? ResolveViewType(Type viewModelType)
     {
-        // 1. Buscar en mapeos personalizados
         if (_customMappings.TryGetValue(viewModelType, out var customViewType))
             return customViewType;
 
-        // 2. Convención: ViewModel -> View (reemplazar "ViewModel" con "View")
         var viewModelName = viewModelType.Name;
         if (viewModelName.EndsWith("ViewModel"))
         {

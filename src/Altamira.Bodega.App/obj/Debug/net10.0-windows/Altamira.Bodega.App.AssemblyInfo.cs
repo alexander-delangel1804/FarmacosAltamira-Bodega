@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Módulo de Bodega - Fármacos Altamira. Aplicación de escritorio WPF.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62134b3a94531ddd898f34c6a226131d289b22a5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20558ceeae9c61fe3b81b201e5e51f740c208e73")]
 [assembly: System.Reflection.AssemblyProductAttribute("Altamira.Bodega.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Altamira.Bodega.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -46,7 +46,7 @@ public static class PresentationDependencyInjection
                     var _ when viewType == typeof(UsuariosView) => new UsuariosView(),
                     _ => throw new InvalidOperationException($"Vista no registrada: {viewType.Name}")
                 };
-            });
+            }, sp);
 
             // Registrar mapeos ViewModel -> View
             nav.Register<ShellViewModel, ShellView>();

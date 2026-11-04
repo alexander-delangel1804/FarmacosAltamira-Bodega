@@ -86,7 +86,8 @@
 
         <!-- Tabla de existencias -->
         <Border Grid.Row="2"
-                Style="{DynamicResource ContenedorTabla}">
+                Style="{DynamicResource ContenedorTabla}"
+                Visibility="{Binding Existencias.Count, Converter={StaticResource BoolToVis}}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" /> <!-- Encabezados -->

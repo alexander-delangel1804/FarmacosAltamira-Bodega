@@ -102,7 +102,8 @@
         </Border>
 
         <!-- Tabla de partidas -->
-        <Border Grid.Row="3" Style="{DynamicResource EstiloTarjetaIndicador}" Margin="0,0,0,16">
+        <Border Grid.Row="3" Style="{DynamicResource EstiloTarjetaIndicador}" Margin="0,0,0,16"
+                Visibility="{Binding HayPartidas, Converter={StaticResource BoolToVis}}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

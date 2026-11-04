@@ -52,7 +52,7 @@ namespace Altamira.Bodega.Presentation.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Altamira.Bodega.Presentation;component/views/trasladorecepcionview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Altamira.Bodega.Presentation;V1.0.0.0;component/views/trasladorecepcionview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\TrasladoRecepcionView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

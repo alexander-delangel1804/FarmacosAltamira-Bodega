@@ -89,7 +89,8 @@
 
         <!-- Tabla de productos -->
         <Border Grid.Row="2"
-                Style="{DynamicResource ContenedorTabla}">
+                Style="{DynamicResource ContenedorTabla}"
+                Visibility="{Binding Productos.Count, Converter={StaticResource BoolToVis}}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

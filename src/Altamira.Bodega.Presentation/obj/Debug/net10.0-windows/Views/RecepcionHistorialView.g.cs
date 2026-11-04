@@ -52,7 +52,8 @@ namespace Altamira.Bodega.Presentation.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Altamira.Bodega.Presentation;component/views/recepcionhistorialview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri(("/Altamira.Bodega.Presentation;V1.0.0.0;component/views/recepcionhistorialview.xam" +
+                    "l"), System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\RecepcionHistorialView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -81,15 +81,15 @@ public partial class ProductoViewModel : ObservableObject
 
         try
         {
-            var lista = await _productoService.ListarProductosAsync(_busqueda, _soloActivos, CancellationToken.None);
+            var lista = await _productoService.ListarProductosAsync(Busqueda, SoloActivos, CancellationToken.None);
             Productos.Clear();
             foreach (var p in lista)
                 Productos.Add(p);
 
             TotalRegistros = Productos.Count;
-            TotalPaginas = (int)System.Math.Ceiling((double)TotalRegistros / Math.Max(1, _tamanoPagina));
-            TieneSiguiente = _paginaActual < TotalPaginas;
-            TieneAnterior = _paginaActual > 1;
+            TotalPaginas = (int)System.Math.Ceiling((double)TotalRegistros / Math.Max(1, TamanoPagina));
+            TieneSiguiente = PaginaActual < TotalPaginas;
+            TieneAnterior = PaginaActual > 1;
         }
         catch (Exception ex)
         {
@@ -104,7 +104,7 @@ public partial class ProductoViewModel : ObservableObject
     [RelayCommand]
     private async Task BuscarAsync()
     {
-        _paginaActual = 1;
+        PaginaActual = 1;
         await CargarProductosAsync();
     }
 
@@ -119,56 +119,56 @@ public partial class ProductoViewModel : ObservableObject
     {
         Busqueda = string.Empty;
         SoloActivos = true;
-        _paginaActual = 1;
+        PaginaActual = 1;
         _ = CargarProductosAsync();
     }
 
     [RelayCommand]
     private void CambiarPagina(int delta)
     {
-        var nuevaPagina = _paginaActual + delta;
+        var nuevaPagina = PaginaActual + delta;
         if (nuevaPagina < 1 || nuevaPagina > TotalPaginas)
             return;
-        _paginaActual = nuevaPagina;
+        PaginaActual = nuevaPagina;
         _ = CargarProductosAsync();
     }
 
     [RelayCommand]
     private void AbrirCreacion()
     {
-        _esModoEdicion = false;
-        _formIdCategoria = 1;
-        _formCodigoBarras = string.Empty;
-        _formNombreComercial = string.Empty;
-        _formSustanciaActiva = null;
-        _formPresentacion = null;
-        _formPrecioVenta = 0;
-        _formTasaIva = 0;
-        _formStockMinimo = 0;
-        _formEsControlado = false;
-        _mostrarFormulario = true;
+        EsModoEdicion = false;
+        FormIdCategoria = 1;
+        FormCodigoBarras = string.Empty;
+        FormNombreComercial = string.Empty;
+        FormSustanciaActiva = null;
+        FormPresentacion = null;
+        FormPrecioVenta = 0;
+        FormTasaIva = 0;
+        FormStockMinimo = 0;
+        FormEsControlado = false;
+        MostrarFormulario = true;
     }
 
     internal void EditarProducto(ProductoDto producto)
     {
-        _esModoEdicion = true;
-        _formIdCategoria = producto.IdCategoria;
-        _formCodigoBarras = producto.CodigoBarras;
-        _formNombreComercial = producto.NombreComercial;
-        _formSustanciaActiva = producto.SustanciaActiva;
-        _formPresentacion = producto.Presentacion;
-        _formPrecioVenta = producto.PrecioVenta;
-        _formTasaIva = producto.TasaIva;
-        _formStockMinimo = producto.StockMinimo;
-        _formEsControlado = producto.EsControlado;
-        _productoSeleccionado = producto;
-        _mostrarFormulario = true;
+        EsModoEdicion = true;
+        FormIdCategoria = producto.IdCategoria;
+        FormCodigoBarras = producto.CodigoBarras;
+        FormNombreComercial = producto.NombreComercial;
+        FormSustanciaActiva = producto.SustanciaActiva;
+        FormPresentacion = producto.Presentacion;
+        FormPrecioVenta = producto.PrecioVenta;
+        FormTasaIva = producto.TasaIva;
+        FormStockMinimo = producto.StockMinimo;
+        FormEsControlado = producto.EsControlado;
+        ProductoSeleccionado = producto;
+        MostrarFormulario = true;
     }
 
     [RelayCommand]
     private async Task GuardarProductoAsync()
     {
-        if (string.IsNullOrWhiteSpace(_formCodigoBarras) || string.IsNullOrWhiteSpace(_formNombreComercial))
+        if (string.IsNullOrWhiteSpace(FormCodigoBarras) || string.IsNullOrWhiteSpace(FormNombreComercial))
         {
             MensajeError = "El código de barras y nombre comercial son obligatorios.";
             return;
@@ -176,38 +176,38 @@ public partial class ProductoViewModel : ObservableObject
 
         try
         {
-            if (_esModoEdicion && _productoSeleccionado != null)
+            if (EsModoEdicion && ProductoSeleccionado != null)
             {
                 var dto = new ProductoUpdateDto(
-                    _formIdCategoria,
-                    _formNombreComercial,
-                    _formSustanciaActiva,
-                    _formPresentacion,
-                    _formPrecioVenta,
-                    _formTasaIva,
-                    _formStockMinimo,
-                    _formEsControlado
+                    FormIdCategoria,
+                    FormNombreComercial,
+                    FormSustanciaActiva,
+                    FormPresentacion,
+                    FormPrecioVenta,
+                    FormTasaIva,
+                    FormStockMinimo,
+                    FormEsControlado
                 );
 
-                var actualizado = await _productoService.ActualizarProductoAsync(_productoSeleccionado.IdProducto, dto, _sesionService.IdUsuario ?? 0, CancellationToken.None);
-                var idx = Productos.IndexOf(_productoSeleccionado);
+                var actualizado = await _productoService.ActualizarProductoAsync(ProductoSeleccionado.IdProducto, dto, _sesionService.IdUsuario ?? 0, CancellationToken.None);
+                var idx = Productos.IndexOf(ProductoSeleccionado);
                 if (idx >= 0)
                     Productos[idx] = actualizado;
 
-                _productoSeleccionado = null;
+                ProductoSeleccionado = null;
             }
             else
             {
                 var dto = new ProductoCreateDto(
-                    _formIdCategoria,
-                    _formCodigoBarras,
-                    _formNombreComercial,
-                    _formSustanciaActiva,
-                    _formPresentacion,
-                    _formPrecioVenta,
-                    _formTasaIva,
-                    _formStockMinimo,
-                    _formEsControlado
+                    FormIdCategoria,
+                    FormCodigoBarras,
+                    FormNombreComercial,
+                    FormSustanciaActiva,
+                    FormPresentacion,
+                    FormPrecioVenta,
+                    FormTasaIva,
+                    FormStockMinimo,
+                    FormEsControlado
                 );
 
                 var creado = await _productoService.CrearProductoAsync(dto, _sesionService.IdUsuario ?? 0, CancellationToken.None);
@@ -215,7 +215,7 @@ public partial class ProductoViewModel : ObservableObject
                 TotalRegistros++;
             }
 
-            _mostrarFormulario = false;
+            MostrarFormulario = false;
             MensajeError = null;
         }
         catch (Exception ex)
@@ -251,8 +251,8 @@ public partial class ProductoViewModel : ObservableObject
     [RelayCommand]
     private void CancelarFormulario()
     {
-        _mostrarFormulario = false;
-        _productoSeleccionado = null;
+        MostrarFormulario = false;
+        ProductoSeleccionado = null;
         MensajeError = null;
     }
 }
