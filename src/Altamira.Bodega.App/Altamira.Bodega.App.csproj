@@ -1,12 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <OutputType>WinExe</OutputType>
-    <Description>Punto de entrada del Módulo de Bodega Fármacos Altamira. Aplicación de escritorio WPF.</Description>
+    <Description>Módulo de Bodega - Fármacos Altamira. Aplicación de escritorio WPF.</Description>
     <StartupObject>Altamira.Bodega.App.Program</StartupObject>
+    <AssemblyName>Altamira.Bodega.App</AssemblyName>
+    <RootNamespace>Altamira.Bodega.App</RootNamespace>
     
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <EnableCOMHosting>false</EnableCOMHosting>
   </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Altamira.Bodega.Presentation\Altamira.Bodega.Presentation.csproj" />
     <ProjectReference Include="..\Altamira.Bodega.Application\Altamira.Bodega.Application.csproj" />
@@ -20,6 +28,7 @@
     <PackageReference Include="Serilog.Sinks.File" />
     <PackageReference Include="Serilog.Extensions.Hosting" />
   </ItemGroup>
+
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -30,5 +39,9 @@
     <None Update="appsettings.Production.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="appsettings.Pruebas.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+
 </Project>

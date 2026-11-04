@@ -57,133 +57,133 @@ public partial class ShellViewModel : ObservableObject
     private string _nombreUsuario = "Usuario";
 
     [RelayCommand]
-    private void NavigateToDashboard()
+    public void NavigateToDashboard()
     {
         TituloPaginaActual = "Dashboard";
         _navigationService.NavigateTo<DashboardViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToExistencias()
+    public void NavigateToExistencias()
     {
         TituloPaginaActual = "Existencias por Ubicación";
         _navigationService.NavigateTo<ExistenciasViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToCatalogo()
+    public void NavigateToCatalogo()
     {
         TituloPaginaActual = "Catálogo de Productos";
         _navigationService.NavigateTo<ProductoViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToLotes()
+    public void NavigateToLotes()
     {
         TituloPaginaActual = "Lotes y Caducidades";
         _navigationService.NavigateTo<LoteInfoViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToKardex()
+    public void NavigateToKardex()
     {
         TituloPaginaActual = "Kárdex y Movimientos";
         _navigationService.NavigateTo<KardexViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToAjustes()
+    public void NavigateToAjustes()
     {
         TituloPaginaActual = "Ajustes de Inventario";
         _navigationService.NavigateTo<AjustesViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToRecepcion()
+    public void NavigateToRecepcion()
     {
         TituloPaginaActual = "Recepción de Mercancía";
         _navigationService.NavigateTo<RecepcionViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToRecepcionHistorial()
+    public void NavigateToRecepcionHistorial()
     {
         TituloPaginaActual = "Historial de Recepciones";
         _navigationService.NavigateTo<RecepcionHistorialViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToEntradas()
+    public void NavigateToEntradas()
     {
         TituloPaginaActual = "Entradas de Inventario";
         _navigationService.NavigateTo<EntradasViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToSalidas()
+    public void NavigateToSalidas()
     {
         TituloPaginaActual = "Salidas de Inventario";
         _navigationService.NavigateTo<SalidasViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToTraslados()
+    public void NavigateToTraslados()
     {
         TituloPaginaActual = "Crear Traslado";
         _navigationService.NavigateTo<TrasladoCrearViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToTrasladoDespacho()
+    public void NavigateToTrasladoDespacho()
     {
         TituloPaginaActual = "Despacho de Traslados";
         _navigationService.NavigateTo<TrasladoDespachoViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToTrasladoRecepcion()
+    public void NavigateToTrasladoRecepcion()
     {
         TituloPaginaActual = "Recepción de Traslados";
         _navigationService.NavigateTo<TrasladoRecepcionViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToTrasladoHistorial()
+    public void NavigateToTrasladoHistorial()
     {
         TituloPaginaActual = "Historial de Traslados";
         _navigationService.NavigateTo<TrasladoHistorialViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToAlertasCaducidad()
+    public void NavigateToAlertasCaducidad()
     {
         TituloPaginaActual = "Alertas de Caducidad";
         _navigationService.NavigateTo<AlertasCaducidadViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToAlertasStock()
+    public void NavigateToAlertasStock()
     {
         TituloPaginaActual = "Alertas de Stock Mínimo";
         _navigationService.NavigateTo<AlertasStockViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToFEFO()
+    public void NavigateToFEFO()
     {
         TituloPaginaActual = "Control FEFO";
         _navigationService.NavigateTo<FEFOViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToBitacora()
+    public void NavigateToBitacora()
     {
         TituloPaginaActual = "Bitácora de Operaciones";
         _navigationService.NavigateTo<BitacoraViewModel>();
     }
 
     [RelayCommand]
-    private void NavigateToUsuarios()
+    public void NavigateToUsuarios()
     {
         TituloPaginaActual = "Usuarios y Permisos";
         _navigationService.NavigateTo<UsuariosViewModel>();

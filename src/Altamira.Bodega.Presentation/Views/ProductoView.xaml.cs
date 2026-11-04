@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace Altamira.Bodega.Presentation.Views;
 
-public partial class ProductoView : Page
+public partial class ProductoView : UserControl
 {
     public ProductoView()
     {

@@ -26,6 +26,7 @@ public static class PresentationDependencyInjection
                     var _ when viewType == typeof(DashboardView) => new DashboardView(),
                     var _ when viewType == typeof(ExistenciasView) => new ExistenciasView(),
                     var _ when viewType == typeof(CatalogoView) => new CatalogoView(),
+                    var _ when viewType == typeof(ProductoView) => new ProductoView(),
                     var _ when viewType == typeof(LotesView) => new LotesView(),
                     var _ when viewType == typeof(LoteInfoView) => new LoteInfoView(),
                     var _ when viewType == typeof(KardexView) => new KardexView(),

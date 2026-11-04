@@ -1,8 +1,15 @@
 using Altamira.Bodega.Application.Interfaces;
 using Altamira.Bodega.Domain.Dtos;
+using Altamira.Bodega.Domain.Exceptions;
+using Altamira.Bodega.Domain.Interfaces;
+using Altamira.Bodega.Presentation.Services;
 using Altamira.Bodega.Presentation.ViewModels;
+using CommunityToolkit.Mvvm.ComponentModel;
 using FluentAssertions;
 using Moq;
+using System.Net.NetworkInformation;
+using System.Threading.Tasks;
+using System.Windows;
 using Xunit;
 
 namespace Altamira.Bodega.Tests;
@@ -1329,6 +1336,285 @@ public class FEFOViewModelTests
         _viewModel.FechaCaducidadDesde.Should().BeNull();
         _viewModel.FechaCaducidadHasta.Should().BeNull();
         _viewModel.SoloElegibles.Should().BeFalse();
+    }
+}
+
+public class BitacoraViewModelTests
+{
+    private readonly Mock<IBitacoraAppService> _bitacoraServiceMock;
+    private readonly Mock<ISesionAppService> _sesionServiceMock;
+    private readonly BitacoraViewModel _viewModel;
+
+    public BitacoraViewModelTests()
+    {
+        _bitacoraServiceMock = new Mock<IBitacoraAppService>();
+        _sesionServiceMock = new Mock<ISesionAppService>();
+        _sesionServiceMock.Setup(s => s.IdUbicacion).Returns(1);
+        _sesionServiceMock.Setup(s => s.IdUsuario).Returns(1);
+
+        _viewModel = new BitacoraViewModel(_bitacoraServiceMock.Object, _sesionServiceMock.Object);
+    }
+
+    [Fact]
+    public void BitacoraViewModel_InitialState_ShouldBeEmpty()
+    {
+        _viewModel.Bitacora.Should().NotBeNull();
+        _viewModel.Bitacora.Should().BeEmpty();
+        _viewModel.Bitacora.Count.Should().Be(0);
+        _viewModel.NoHayBitacora.Should().BeTrue();
+        _viewModel.HayBitacora.Should().BeFalse();
+    }
+
+    [Fact]
+    public async Task BitacoraViewModel_CargarBitacora_ShouldPopulateList()
+    {
+        var bitacoras = new List<BitacoraDto>
+        {
+            new BitacoraDto(1, 1, "usuario1", 1, "Bodega Central", DateTimeOffset.Now, "INVENTARIO", "RECEPCION", "Existencias", "1", "Recepción registrada", null),
+            new BitacoraDto(2, 2, "usuario2", 1, "Bodega Central", DateTimeOffset.Now.AddHours(-1), "INVENTARIO", "AJUSTE", null, null, "Ajuste de inventario", null)
+        };
+
+        _bitacoraServiceMock
+            .Setup(s => s.ConsultarBitacoraAsync(It.IsAny<int?>(), It.IsAny<int?>(), It.IsAny<string?>(), It.IsAny<string?>(), It.IsAny<DateTimeOffset?>(), It.IsAny<DateTimeOffset?>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync((IReadOnlyList<BitacoraDto>)bitacoras);
+
+        await _viewModel.CargarBitacoraAsync();
+
+        _viewModel.Bitacora.Count.Should().Be(2);
+        _viewModel.HayBitacora.Should().BeTrue();
+        _viewModel.NoHayBitacora.Should().BeFalse();
+    }
+
+    [Fact]
+    public async Task BitacoraViewModel_CargarBitacora_WhenServiceThrows_ShouldSetError()
+    {
+        _bitacoraServiceMock
+            .Setup(s => s.ConsultarBitacoraAsync(It.IsAny<int?>(), It.IsAny<int?>(), It.IsAny<string?>(), It.IsAny<string?>(), It.IsAny<DateTimeOffset?>(), It.IsAny<DateTimeOffset?>(), It.IsAny<CancellationToken>()))
+            .ThrowsAsync(new Exception("Error de conexión"));
+
+        await _viewModel.CargarBitacoraAsync();
+
+        _viewModel.MensajeError.Should().NotBeNull();
+        _viewModel.EstaCargando.Should().BeFalse();
+    }
+
+    [Fact]
+    public void BitacoraViewModel_LimpiarFiltros_ShouldResetFilters()
+    {
+        _viewModel.Busqueda = "test";
+        _viewModel.FiltroModulo = "INVENTARIO";
+        _viewModel.FiltroAccion = "RECEPCION";
+        _viewModel.FiltroUbicacion = 2;
+        _viewModel.FechaDesde = DateTimeOffset.Now.AddDays(-30);
+        _viewModel.FechaHasta = DateTimeOffset.Now;
+
+        _viewModel.LimpiarFiltros();
+
+        _viewModel.Busqueda.Should().Be(string.Empty);
+        _viewModel.FiltroModulo.Should().BeNull();
+        _viewModel.FiltroAccion.Should().BeNull();
+        _viewModel.FiltroUbicacion.Should().BeNull();
+        _viewModel.FechaDesde.Should().BeNull();
+        _viewModel.FechaHasta.Should().BeNull();
+    }
+}
+
+public class ShellViewModelTests
+{
+    private readonly Mock<INavigationService> _navigationServiceMock;
+    private readonly Mock<ISesionAppService> _sesionServiceMock;
+    private readonly ShellViewModel _viewModel;
+
+    public ShellViewModelTests()
+    {
+        _navigationServiceMock = new Mock<INavigationService>();
+        _sesionServiceMock = new Mock<ISesionAppService>();
+        _sesionServiceMock.Setup(s => s.IdUbicacion).Returns(1);
+        _sesionServiceMock.Setup(s => s.IdUsuario).Returns(1);
+        _sesionServiceMock.Setup(s => s.PuedeAccederAMinistro("ADMINISTRACION", "USUARIOS")).Returns(true);
+
+        _viewModel = new ShellViewModel(_navigationServiceMock.Object, _sesionServiceMock.Object);
+    }
+
+    [Fact]
+    public void ShellViewModel_InitialState_ShouldHaveDefaults()
+    {
+        _viewModel.TituloPaginaActual.Should().Be("Dashboard");
+        _viewModel.PuedeAccederAdministracion.Should().BeTrue();
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToExistencias_ShouldNavigate()
+    {
+        _viewModel.NavigateToExistencias();
+
+        _viewModel.TituloPaginaActual.Should().Be("Existencias por Ubicación");
+        _navigationServiceMock.Verify(n => n.NavigateTo<ExistenciasViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToCatalogo_ShouldNavigate()
+    {
+        _viewModel.NavigateToCatalogo();
+
+        _viewModel.TituloPaginaActual.Should().Be("Catálogo de Productos");
+        _navigationServiceMock.Verify(n => n.NavigateTo<ProductoViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToRecepcion_ShouldNavigate()
+    {
+        _viewModel.NavigateToRecepcion();
+
+        _viewModel.TituloPaginaActual.Should().Be("Recepción de Mercancía");
+        _navigationServiceMock.Verify(n => n.NavigateTo<RecepcionViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToAlertasCaducidad_ShouldNavigate()
+    {
+        _viewModel.NavigateToAlertasCaducidad();
+
+        _viewModel.TituloPaginaActual.Should().Be("Alertas de Caducidad");
+        _navigationServiceMock.Verify(n => n.NavigateTo<AlertasCaducidadViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToAlertasStock_ShouldNavigate()
+    {
+        _viewModel.NavigateToAlertasStock();
+
+        _viewModel.TituloPaginaActual.Should().Be("Alertas de Stock Mínimo");
+        _navigationServiceMock.Verify(n => n.NavigateTo<AlertasStockViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToFEFO_ShouldNavigate()
+    {
+        _viewModel.NavigateToFEFO();
+
+        _viewModel.TituloPaginaActual.Should().Be("Control FEFO");
+        _navigationServiceMock.Verify(n => n.NavigateTo<FEFOViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToBitacora_ShouldNavigate()
+    {
+        _viewModel.NavigateToBitacora();
+
+        _viewModel.TituloPaginaActual.Should().Be("Bitácora de Operaciones");
+        _navigationServiceMock.Verify(n => n.NavigateTo<BitacoraViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_NavigateToUsuarios_ShouldNavigate()
+    {
+        _viewModel.NavigateToUsuarios();
+
+        _viewModel.TituloPaginaActual.Should().Be("Usuarios y Permisos");
+        _navigationServiceMock.Verify(n => n.NavigateTo<UsuariosViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public void ShellViewModel_PuedeAccederAdministracion_WhenNotAuthorized_ShouldBeFalse()
+    {
+        _sesionServiceMock.Setup(s => s.PuedeAccederAMinistro("ADMINISTRACION", "USUARIOS")).Returns(false);
+        var vmSinPermisos = new ShellViewModel(_navigationServiceMock.Object, _sesionServiceMock.Object);
+
+        vmSinPermisos.PuedeAccederAdministracion.Should().BeFalse();
+    }
+
+    [Fact]
+    public void ShellViewModel_PuedeAccederAdministracion_WhenAuthorized_ShouldBeTrue()
+    {
+        _sesionServiceMock.Setup(s => s.PuedeAccederAMinistro("ADMINISTRACION", "USUARIOS")).Returns(true);
+        var vmConPermisos = new ShellViewModel(_navigationServiceMock.Object, _sesionServiceMock.Object);
+
+        vmConPermisos.PuedeAccederAdministracion.Should().BeTrue();
+    }
+}
+
+public class LoginViewModelTests
+{
+    private readonly Mock<IAuthAppService> _authServiceMock;
+    private readonly Mock<INavigationService> _navigationServiceMock;
+    private readonly Mock<ISesionAppService> _sesionServiceMock;
+    private readonly LoginViewModel _viewModel;
+
+    public LoginViewModelTests()
+    {
+        _authServiceMock = new Mock<IAuthAppService>();
+        _navigationServiceMock = new Mock<INavigationService>();
+        _sesionServiceMock = new Mock<ISesionAppService>();
+        _viewModel = new LoginViewModel(_authServiceMock.Object, _navigationServiceMock.Object, _sesionServiceMock.Object);
+    }
+
+    [Fact]
+    public void LoginViewModel_InitialState_ShouldBeEmpty()
+    {
+        _viewModel.NombreUsuario.Should().Be(string.Empty);
+        _viewModel.Contrasena.Should().Be(string.Empty);
+        _viewModel.IdEstacion.Should().Be(1);
+        _viewModel.ErrorMessage.Should().BeNull();
+        _viewModel.IsLoading.Should().BeFalse();
+    }
+
+    [Fact]
+    public async Task LoginViewModel_IniciarSesion_WhenValidCredentials_ShouldNavigate()
+    {
+        _viewModel.NombreUsuario = "usuario1";
+        _viewModel.Contrasena = "password123";
+
+        _authServiceMock
+            .Setup(s => s.LoginAsync(It.IsAny<LoginRequest>(), It.IsAny<string>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new LoginResponse("token123", "refresh123", 1, "usuario1", "Usuario Uno", "ADMIN", 1, "Bodega Central", null, null, DateTimeOffset.Now.AddHours(1)));
+
+        await _viewModel.IniciarSesionAsync();
+
+        _viewModel.ErrorMessage.Should().BeNull();
+        _viewModel.IsLoading.Should().BeFalse();
+        _navigationServiceMock.Verify(n => n.NavigateTo<DashboardViewModel>(), Times.Once);
+    }
+
+    [Fact]
+    public async Task LoginViewModel_IniciarSesion_WhenInvalidCredentials_ShouldSetError()
+    {
+        _authServiceMock
+            .Setup(s => s.LoginAsync(It.IsAny<LoginRequest>(), It.IsAny<string>(), It.IsAny<CancellationToken>()))
+            .ThrowsAsync(new SesionExpiradaException("Credenciales inválidas o estación no autorizada."));
+
+        _viewModel.NombreUsuario = "usuario1";
+        _viewModel.Contrasena = "wrong";
+
+        await _viewModel.IniciarSesionAsync();
+
+        _viewModel.ErrorMessage.Should().Contain("Credenciales");
+        _viewModel.IsLoading.Should().BeFalse();
+    }
+
+    [Fact]
+    public async Task LoginViewModel_IniciarSesion_WhenServiceThrows_ShouldSetError()
+    {
+        _authServiceMock
+            .Setup(s => s.LoginAsync(It.IsAny<LoginRequest>(), It.IsAny<string>(), It.IsAny<CancellationToken>()))
+            .ThrowsAsync(new Exception("Error de conexión"));
+
+        _viewModel.NombreUsuario = "usuario1";
+        _viewModel.Contrasena = "password123";
+
+        await _viewModel.IniciarSesionAsync();
+
+        _viewModel.ErrorMessage.Should().NotBeNull();
+        _viewModel.IsLoading.Should().BeFalse();
+    }
+
+    [Fact]
+    public async Task LoginViewModel_IniciarSesion_WhenEmptyCredentials_ShouldSetError()
+    {
+        await _viewModel.IniciarSesionAsync();
+
+        _viewModel.ErrorMessage.Should().NotBeNull();
+        _viewModel.IsLoading.Should().BeFalse();
     }
 }
 

@@ -1,6 +1,7 @@
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\appsettings.Development.json
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\appsettings.json
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\appsettings.Production.json
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\appsettings.Pruebas.json
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Altamira.Bodega.App.exe
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Altamira.Bodega.App.deps.json
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.App\bin\Debug\net10.0-windows\Altamira.Bodega.App.runtimeconfig.json

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Capa de infraestructura del Módulo de Bodega. Clientes de API REST, HttpClient, m" +
     "anejo de tokens y logging."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29cd44cfd2a86325edeba774913fa0fea4458955")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62134b3a94531ddd898f34c6a226131d289b22a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Altamira.Bodega.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Altamira.Bodega.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

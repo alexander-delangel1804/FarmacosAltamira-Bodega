@@ -1,4 +1,4 @@
-<Page x:Class="Altamira.Bodega.Presentation.Views.RecepcionView"
+<UserControl x:Class="Altamira.Bodega.Presentation.Views.RecepcionView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,9 +8,9 @@
       d:DesignHeight="800" d:DesignWidth="1200"
       Background="{DynamicResource BrochaFondo}">
 
-    <Page.Resources>
+    <UserControl.Resources>
         <local:BooleanToVisibilityConverter x:Key="BoolToVis" />
-    </Page.Resources>
+    </UserControl.Resources>
 
     <Grid Margin="16">
         <Grid.RowDefinitions>
@@ -206,10 +206,10 @@
                 <TextBox Grid.Column="3" Text="{Binding NumeroLoteNuevo, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" Width="120" Margin="0,0,16,0" />
 
                 <TextBlock Grid.Column="4" Text="Caducidad:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="8,0,0,0" VerticalAlignment="Center" />
-                <DatePicker Grid.Column="5" SelectedDate="{Binding FechaCaducidad, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" Width="120" Margin="0,0,16,0" />
+                <DatePicker Grid.Column="5" SelectedDate="{Binding FechaCaducidad, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoFecha}" Width="120" Margin="0,0,16,0" />
 
                 <TextBlock Grid.Column="6" Text="Fabricación:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="8,0,0,0" VerticalAlignment="Center" />
-                <DatePicker Grid.Column="7" SelectedDate="{Binding FechaFabricacion, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" Width="120" Margin="0,0,16,0" />
+                <DatePicker Grid.Column="7" SelectedDate="{Binding FechaFabricacion, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoFecha}" Width="120" Margin="0,0,16,0" />
 
                 <TextBlock Grid.Column="8" Text="Cantidad:" Style="{DynamicResource EstiloTextoSuave}" FontWeight="SemiBold" Margin="8,0,0,0" VerticalAlignment="Center" />
                 <TextBox Grid.Column="9" Text="{Binding Cantidad, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource EstiloCampoTexto}" Width="80" Margin="0,0,16,0" />
@@ -229,4 +229,4 @@
             </StackPanel>
         </Border>
     </Grid>
-</Page>
+</UserControl>

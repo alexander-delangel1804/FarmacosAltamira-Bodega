@@ -10,10 +10,8 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Prese
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Altamira.Bodega.Presentation.csproj.AssemblyReference.cache
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Resources\Colores.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Resources\Styles.baml
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\BitacoraView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\CatalogoView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\EntradasView.baml
-C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\LoginView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\LotesView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\SalidasView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\ShellView.baml
@@ -51,10 +49,12 @@ C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Prese
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\AjustesView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\AlertasCaducidadView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\AlertasStockView.baml
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\BitacoraView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\DashboardView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\ExistenciasView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\FEFOView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\KardexView.baml
+C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\LoginView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\LoteInfoView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\ProductoView.baml
 C:\Users\alexa\OneDrive\Documentos\Proyecto GPS\Bodega\src\Altamira.Bodega.Presentation\obj\Debug\net10.0-windows\Views\RecepcionHistorialView.baml

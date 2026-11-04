@@ -1,4 +1,4 @@
-<Page x:Class="Altamira.Bodega.Presentation.Views.AjustesView"
+<UserControl x:Class="Altamira.Bodega.Presentation.Views.AjustesView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,9 +8,9 @@
       d:DesignHeight="700" d:DesignWidth="900"
       Background="{DynamicResource BrochaFondo}">
 
-    <Page.Resources>
+    <UserControl.Resources>
         <local:BooleanToVisibilityConverter x:Key="BoolToVis" />
-    </Page.Resources>
+    </UserControl.Resources>
 
     <Grid Margin="16">
         <Grid.RowDefinitions>
@@ -286,4 +286,4 @@
             </StackPanel>
         </Border>
     </Grid>
-</Page>
+</UserControl>

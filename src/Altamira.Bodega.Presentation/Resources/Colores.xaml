@@ -225,6 +225,23 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="EstiloCampoFecha" TargetType="DatePicker">
+        <Setter Property="FontFamily" Value="{DynamicResource FuentePrincipal}" />
+        <Setter Property="FontSize" Value="{DynamicResource TamanoTextoNormal}" />
+        <Setter Property="Foreground" Value="{DynamicResource BrochaTextoPrimario}" />
+        <Setter Property="Background" Value="{DynamicResource BrochaSuperficie}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BrochaBorde}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="10,8" />
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource BrochaPrimaria}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="EstiloCampoContrasena" TargetType="PasswordBox">
         <Setter Property="FontFamily" Value="{DynamicResource FuentePrincipal}" />
         <Setter Property="FontSize" Value="{DynamicResource TamanoTextoNormal}" />
